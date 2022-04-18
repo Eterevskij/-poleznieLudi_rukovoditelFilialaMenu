@@ -1,38 +1,503 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 0 !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app__wrapper {
+  height: 100vh;
+  font-family: Inter;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  max-width: 1312px;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background: #f4f4f4;
+  overflow-x: hidden;
+
+}
+
+.headerAndContent {
+  padding-left: 256px;
+}
+
+.aside, .header {
+  background: #fff !important;
+}
+
+.aside {
+  border-right: 1px solid #EEEEEE;
+  height: 100vh;
+  position: relative;
+  z-index: 10;
+  flex: 0 0 256px !important;
+  max-width: 256px !important;
+  min-width: 256px !important;
+  width: 256px !important;
+  padding: 0 12px;
+}
+
+.aside .ant-menu {
+  border-right: none;
+}
+
+.ant-menu-item::after {
+  display: none;
+}
+
+.ant-menu-item {
+  height: 48px !important;
+}
+
+.aside .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background: #F4F4F4;
+  border-radius: 6px;
+}
+
+.ant-menu-title-content {
+  color: #2B2B2B;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.ant-menu-item.ant-menu-item-selected .ant-menu-title-content {
+  font-weight: 600;
+}
+
+.ant-menu-item-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.ant-menu-item.ant-menu-item-selected .ant-menu-item-icon path {
+  fill: #4DB663;
+}
+
+.backArrow {
+  line-height: 14px;
+  color: #2B2B2B;
+  height: 40px;
+  background: transparent;
+  border-radius: 6px;
+  border: 1px solid #BCBEC0;
+  width: 100%;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+.ant-menu-item.main {
+  margin-top: 72px;
+}
+
+.menu {
+  margin-top: 24px;
+}
+
+.backArrow svg {
+  height: 20px;
+  width: 20px;
+}
+
+.logo {
+  margin-top: 16px;
+  margin-left: 7px;
+}
+
+.backArrow .ant-menu-title-content {
+  font-size: 14px;
+}
+
+.aside.ant-layout-sider-collapsed {
+  flex: 0 0 72px !important;
+  max-width: 72px !important;
+  min-width: 72px !important;
+  width: 72px !important;
+  padding: 0 12px;
+}
+
+.aside.ant-layout-sider-collapsed .ant-menu-item-icon {
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.aside {
+  position: fixed;
+}
+
+.menuDarkBG {
+  z-index: 5;
+  top: 0;
+  left: 0;
+  position: fixed;
+  content: '';
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.0);
+  backdrop-filter: blur(0px);
+  display: none;
+}
+
+.header__left__search {
+  height: 40px;
+}
+
+.header__left__search .ant-input::placeholder {
+  color: #7a7a7a;
+}
+
+.header__left__search .ant-input {
+  color: #7a7a7a;
+  background: transparent;
+}
+
+.header__left__search {
+  background: #f4f4f4;
+  border-radius: 8px;
+  border: none;
+}
+
+.header__right__item {
+  border: none;
+}
+
+.header__right__item.balance {
+  background: #f4f4f4;
+  border-radius: 8px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+
+.header__right__item svg {
+  color: #4DB663;
+  height: 20px;
+  width: 20px;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+}
+
+.balance__sum {
+  font-weight: 600;
+  color: #2b2b2b;
+}
+
+.header__right__item.balance span {
+  color: #4f4f4f;
+}
+
+.header__right__item+.header__right__item {
+  margin-left: 24px;
+}
+
+.header__right__item.profile {
+  padding: 0;
+  height: 40px;
+}
+
+.header__right__item.profile .anticon-down {
+  margin-left: 8px;
+  position: relative;
+}
+
+.header__left__search__wrapper {
+  height: 100%;
+}
+
+.header__right__item.bell {
+  display: flex;
+  align-items: center;
+}
+
+.header__right__item.balance {
+  height: 40px;
+}
+
+.header {
+  height: 72px !important;
+  padding: 0 5px !important;
+  position: fixed;
+  width: calc(100vw - 258px);
+}
+
+.header .container {
+  height: 100%;
+}
+
+.header__right__item.bell {
+  cursor: pointer;
+  position: relative;
+  background: #F4F4F4;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.bell__notification {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  top: -7px;
+  right: -7px;
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  background: #4DB663;
+  border-radius: 50%;
+  border: 2px solid #fff;
+
 }
 
-.App-link {
-  color: #61dafb;
+.bell__notification__text {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+  letter-spacing: -0.05em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.header__right__item.profile .anticon-down svg {
+  height: 12px;
+  width: 12px;
+}
+
+.menu.mobile {
+  display: none;
+}
+
+.ant-menu-horizontal::after, .ant-menu-horizontal::before {
+  display: none !important;
+}
+
+.header .mobile {
+  display: none;
+}
+
+.ant-layout-content {
+  margin-top: 72px;
+}
+
+.menu.mobile {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.ant-menu-submenu-arrow::before, .ant-menu-submenu-arrow::after {
+  color: #7a7a7a;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background: none;
+}
+
+main .ant-menu-submenu .ant-menu-submenu-title{
+  padding: 0 !important;
+}
+
+.ant-menu-submenu  {
+  height: auto !important;
+}
+
+.clientPortal__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clientPortal__wrapper svg {
+  margin-right: 8px;
+}
+
+
+main .menu {
+  border-radius: 16px;
+}
+
+main .menu .ant-divider {
+ margin: 16px 0;
+}
+
+main .menu {
+  padding: 32px;
+  display: none;
+}
+
+@media (max-width: 1200px) {
+
+  .headerAndContent {
+    padding: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .menuDarkBG {
+    background: rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(4px);
+    display: block;
   }
+
+  .header {
+    width: calc(100vw - 74px);
+  } 
+
+  .container {
+    max-width: 1030px;
+  }
+
+  .headerAndContent {
+    position: absolute;
+    width: calc(100vw - 72px) !important;
+    height: 100%;
+    right: 0;
+  }
+
+}
+
+@media (max-width: 1024px) {
+
+  .container {
+    max-width: 1012px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  main .menu {
+    display: block;
+  }
+
+  .header {
+    width: 100vw;
+  }
+
+  main {
+    padding: 32px 0;
+  }
+
+  .ant-menu-submenu  {
+    padding: 8px 0px !important;
+  }
+
+  .container {
+    max-width: 688px;
+  }
+
+  .aside.desktop {
+    display: none;
+  }
+
+  .headerAndContent {
+    width: 100% !important;
+  }
+
+  .menu.mobile {
+    display: block;
+    padding: 0;
+  }
+
+  .menu.mobile .ant-menu {
+    justify-content: space-between;
+    padding: 12px 40px;
+  }
+
+  .ant-menu-item-selected {
+    background: #f4f4f4;
+    border-radius: 6px;
+  }
+
+  .ant-menu-item {
+    padding: 5px 0 !important;
+    height: auto !important;
+  }
+
+  .ant-menu-item.main {
+    margin-top: 24px;
+  }
+
+  .ant-menu-item-selected,
+  .ant-menu-item:hover  {
+    background: none !important;
+  }
+
+  .ant-menu-overflow-item {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header .mobile {
+    display: block;
+    height: 100%;
+  }
+
+  .header .desktop {
+    display: none;
+  }
+
+  .mobile__search {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+
+  .mobile__search svg {
+    margin-top: -50%;
+    background: #F4F4F4;
+    box-sizing: content-box;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .mobile__title {
+    text-align: center;
+    color: #2b2b2b;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .mobile .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 520px) {
+
+  .menu.mobile .ant-menu {
+    padding: 8px 24px;
+  }
+
+  .ant-menu-submenu {
+    padding: 8px 0px !important;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .mobile__title {
+    font-size: 18px;
+  }
+
+  .mobile__search svg {
+    padding: 6px;
+  } 
+
+  main .menu {
+    padding: 24px;
+  }
+
 }
